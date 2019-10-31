@@ -8,14 +8,14 @@ struct _retire_info {
 };
 typedef struct _retire_info retire_info;
 
-void retirement (int StartAge, double initial, retire_info working, retire_info retired)
+void retirement (int startAge, double initial, retire_info working, retire_info retired)
 {
   int i,j;
-  for(i=StartAge; i<(StartAge+working.months);i++){
+  for(i=startAge; i<(startAge+working.months);i++){
     printf("Age %3d month %2d you have $%.2f \n",i/12,i%12,initial);
     initial = initial+working.contribution+initial*working.rate_of_return;
   }
-  for(j=i; j<(StartAge+working.months+retired.months);j++){
+  for(j=i; j<(startAge+working.months+retired.months);j++){
     printf("Age %3d month %2d you have $%.2f \n",j/12,j%12,initial);
     initial = initial+retired.contribution+initial*retired.rate_of_return;
   }
