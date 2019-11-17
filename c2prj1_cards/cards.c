@@ -12,7 +12,7 @@ void assert_card_valid(card_t c) {
 const char * ranking_to_string(hand_ranking_t r) {
   switch (r){
   case STRAIGHT_FLUSH:
-    return "STRAIGHT FLUSH";
+    return "STRAIGHT_FLUSH";
     break;
   case FOUR_OF_A_KIND:
     return "FOUR_OF_A_KIND";
@@ -30,7 +30,7 @@ const char * ranking_to_string(hand_ranking_t r) {
     return "THREE_OF_A_KIND";
     break;
   case TWO_PAIR:
-    return "TWO-PAIR";
+    return "TWO_PAIR";
     break;
   case PAIR:
     return "PAIR";
