@@ -27,8 +27,8 @@ suit_t flush_suit(deck_t * hand) {
     card1 = **(card +i);
     switch(card1.suit){
     case SPADES : {s++;  break;}
-    case HEARTS : { h++;  break;}
-    case DIAMONDS :{ d++ ;  break;}
+    case HEARTS : {h++;  break;}
+    case DIAMONDS :{d++ ;  break;}
     case CLUBS :{c++ ; break;}
     case NUM_SUITS: break;
 
