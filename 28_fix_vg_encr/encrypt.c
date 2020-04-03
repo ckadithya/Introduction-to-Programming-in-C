@@ -21,8 +21,10 @@ void encrypt(FILE * f, int key, FILE * outfile){
       ptr++;
     }
     fprintf(outfile, "%s", line);
-  }
+ }
+  free(line);
 }
+
 
 int main(int argc, char ** argv) {
   if (argc != 3) {
@@ -53,6 +55,6 @@ int main(int argc, char ** argv) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
   }
-
+  free(outFileName);
   return EXIT_SUCCESS;
 }
