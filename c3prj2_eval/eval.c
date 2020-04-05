@@ -3,6 +3,11 @@
 #include <stdlib.h>
 #include <assert.h>
 
+int com1(card_t c1,card_t c2){
+  if (c1.value == c2.value) return 1;
+  return 0;
+}
+
 int card_ptr_comp(const void * vp1, const void * vp2) {
   const card_t * const * cp1=vp1;
   const card_t * const * cp2=vp2;
@@ -173,7 +178,25 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
 //implementation in eval-c4.o) so that the
 //other functions we have provided can make
 //use of get_match_counts.
-unsigned * get_match_counts(deck_t * hand) ;
+
+unsigned * get_match_counts(deck_t * hand) {
+  unsigned* arr=malloc(hand->n_cards*sizeof(*arr));
+  for(int i=0 ; i< hand->n_cards ; i++){
+    card_t x = *(hand->cards[i]);
+    unsigned  count=0;
+    for(int j=0 ; j< hand->n_cards;j++){
+      if(com1(*(hand->cards[j]),x)) count ++;
+    }
+    arr[i] = count;}
+  return arr;
+}
+
+
+
+
+
+
+
 
 // We provide the below functions.  You do NOT need to modify them
 // In fact, you should not modify them!
