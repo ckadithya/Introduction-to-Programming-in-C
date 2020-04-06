@@ -3,14 +3,13 @@
 #include <assert.h>
 #include "deck.h"
 void print_hand(deck_t * hand){
-  card_t ** ptr = hand->cards;
-  for(int i=0; i<(hand->n_cards); i++){
-    print_card(**ptr);
-    printf("%s"," ");
-    ptr++;
+  card_t ** card =hand -> cards ;
+  card_t  card1;
+  for (size_t i=0 ;i<(hand -> n_cards );i++){
+    card1=**(card +i);
+    print_card(card1);
   }
 }
-
 int com (card_t c1,card_t c2){
   if ((c1.value == c2.value) &&(c1.suit == c2.suit)) return 1;
   return 0;
